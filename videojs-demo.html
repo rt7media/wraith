@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video.js Demo - Wraith</title>
+    
+    <!-- Video.js CSS -->
+    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #1a1a1a;
+            color: white;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            margin-bottom: 40px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #999;
+            font-size: 1.1em;
+        }
+        
+        .video-wrapper {
+            margin-bottom: 40px;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .info-section {
+            background: #2a2a2a;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .info-section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .info-section p {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .info-section ul {
+            color: #ccc;
+            line-height: 1.8;
+            padding-left: 20px;
+        }
+        
+        .info-section a {
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-link">← Back to All Demos</a>
+            <h1>Video.js</h1>
+            <p class="subtitle">The industry standard open-source HTML5 video player</p>
+        </div>
+        
+        <div class="video-wrapper">
+            <video
+                id="my-video"
+                class="video-js vjs-big-play-centered"
+                controls
+                preload="auto"
+                width="1200"
+                height="675"
+                poster="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
+                data-setup="{}">
+                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/webm" />
+                <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a web browser that
+                    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                </p>
+            </video>
+        </div>
+        
+        <div class="info-section">
+            <h2>About Video.js</h2>
+            <p>Video.js is the most widely used open-source HTML5 player, powering video on millions of websites. It's built from the ground up for an HTML5 world and supports all modern streaming formats.</p>
+            
+            <h2>Key Features</h2>
+            <ul>
+                <li>Extensive plugin ecosystem with 100+ official and community plugins</li>
+                <li>HLS and DASH streaming support</li>
+                <li>Highly customizable with themes and skins</li>
+                <li>Excellent accessibility features (WCAG compliant)</li>
+                <li>Framework agnostic - works with React, Vue, Angular, etc.</li>
+                <li>Mobile-first responsive design</li>
+                <li>DRM support (Widevine, PlayReady, FairPlay)</li>
+                <li>Active development and large community</li>
+            </ul>
+            
+            <h2>Best For</h2>
+            <p>Enterprise applications, production environments, projects requiring extensive customization, streaming services, and situations where plugin support is important.</p>
+            
+            <h2>Resources</h2>
+            <p>
+                <a href="https://videojs.com/" target="_blank">Official Website</a> | 
+                <a href="https://github.com/videojs/video.js" target="_blank">GitHub</a> | 
+                <a href="https://docs.videojs.com/" target="_blank">Documentation</a>
+            </p>
+        </div>
+    </div>
+    
+    <!-- Video.js JavaScript -->
+    <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+    <script>
+        // Initialize player with options
+        var player = videojs('my-video', {
+            fluid: true,
+            responsive: true,
+            playbackRates: [0.5, 1, 1.5, 2]
+        });
+        
+        // Optional: Add event listeners
+        player.on('play', function() {
+            console.log('Video.js: Playback started');
+        });
+        
+        player.on('ended', function() {
+            console.log('Video.js: Playback ended');
+        });
+    </script>
+</body>
+</html>

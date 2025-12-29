@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vidstack Demo - Wraith</title>
+    
+    <!-- Vidstack CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@vidstack/react@1.12.9/player/styles/default/theme.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@vidstack/react@1.12.9/player/styles/default/layouts/video.css" />
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #1a1a1a;
+            color: white;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            margin-bottom: 40px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #999;
+            font-size: 1.1em;
+        }
+        
+        .video-wrapper {
+            margin-bottom: 40px;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .info-section {
+            background: #2a2a2a;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .info-section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .info-section p {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .info-section ul {
+            color: #ccc;
+            line-height: 1.8;
+            padding-left: 20px;
+        }
+        
+        .info-section a {
+            color: #667eea;
+        }
+        
+        media-player {
+            width: 100%;
+            aspect-ratio: 16/9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-link">← Back to All Demos</a>
+            <h1>Vidstack</h1>
+            <p class="subtitle">Next-generation video player built with web components</p>
+        </div>
+        
+        <div class="video-wrapper">
+            <media-player 
+                title="Big Buck Bunny"
+                src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                poster="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
+                controls>
+                <media-provider></media-provider>
+                <media-video-layout></media-video-layout>
+            </media-player>
+        </div>
+        
+        <div class="info-section">
+            <h2>About Vidstack</h2>
+            <p>Vidstack is a next-generation video player built from the ground up using modern web components. It provides a powerful, type-safe API with excellent performance and flexibility for building custom video experiences.</p>
+            
+            <h2>Key Features</h2>
+            <ul>
+                <li>Built with web components for maximum compatibility</li>
+                <li>Framework agnostic (vanilla JS, React, Vue, Svelte, etc.)</li>
+                <li>TypeScript-first with full type safety</li>
+                <li>Modern architecture with zero legacy code</li>
+                <li>Excellent performance and small bundle size</li>
+                <li>Headless API for complete UI customization</li>
+                <li>HLS, DASH, and YouTube support out of the box</li>
+                <li>Picture-in-Picture and Fullscreen APIs</li>
+                <li>Comprehensive accessibility features</li>
+                <li>Built-in layouts and themes</li>
+            </ul>
+            
+            <h2>Best For</h2>
+            <p>Modern web applications, projects using TypeScript, developers wanting complete control over UI/UX, applications requiring custom video experiences, and teams looking for future-proof architecture with web standards.</p>
+            
+            <h2>Resources</h2>
+            <p>
+                <a href="https://www.vidstack.io/" target="_blank">Official Website</a> | 
+                <a href="https://github.com/vidstack/player" target="_blank">GitHub</a> | 
+                <a href="https://www.vidstack.io/docs/player/getting-started/installation" target="_blank">Documentation</a>
+            </p>
+        </div>
+    </div>
+    
+    <!-- Vidstack JavaScript -->
+    <script type="module">
+        import 'https://cdn.jsdelivr.net/npm/@vidstack/player@1.12.9/+esm';
+        
+        const player = document.querySelector('media-player');
+        
+        // Optional: Add event listeners
+        player.addEventListener('play', () => {
+            console.log('Vidstack: Playback started');
+        });
+        
+        player.addEventListener('ended', () => {
+            console.log('Vidstack: Playback ended');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plyr Demo - Wraith</title>
+    
+    <!-- Plyr CSS -->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #1a1a1a;
+            color: white;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            margin-bottom: 40px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #999;
+            font-size: 1.1em;
+        }
+        
+        .video-wrapper {
+            margin-bottom: 40px;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .info-section {
+            background: #2a2a2a;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .info-section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .info-section p {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .info-section ul {
+            color: #ccc;
+            line-height: 1.8;
+            padding-left: 20px;
+        }
+        
+        .info-section a {
+            color: #667eea;
+        }
+        
+        /* Customize Plyr colors */
+        :root {
+            --plyr-color-main: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-link">← Back to All Demos</a>
+            <h1>Plyr</h1>
+            <p class="subtitle">A simple, lightweight, and accessible HTML5 media player</p>
+        </div>
+        
+        <div class="video-wrapper">
+            <video id="player" playsinline controls poster="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg">
+                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+            </video>
+        </div>
+        
+        <div class="info-section">
+            <h2>About Plyr</h2>
+            <p>Plyr is a simple, lightweight, accessible HTML5 media player that supports video, audio, YouTube, and Vimeo. It's designed to be easy to use and customize with a beautiful, modern interface out of the box.</p>
+            
+            <h2>Key Features</h2>
+            <ul>
+                <li>Clean, modern UI with minimal configuration needed</li>
+                <li>Lightweight (only ~10KB gzipped)</li>
+                <li>Fully responsive and mobile-friendly</li>
+                <li>YouTube and Vimeo support built-in</li>
+                <li>Accessible with full keyboard navigation</li>
+                <li>Easy customization with CSS variables</li>
+                <li>Picture-in-Picture support</li>
+                <li>Fullscreen API support</li>
+                <li>Quality selection for adaptive streaming</li>
+                <li>Speed controls and captions</li>
+            </ul>
+            
+            <h2>Best For</h2>
+            <p>Projects needing a quick setup with minimal configuration, modern web applications, sites embedding YouTube/Vimeo content, and developers who want a clean UI without extensive customization needs.</p>
+            
+            <h2>Resources</h2>
+            <p>
+                <a href="https://plyr.io/" target="_blank">Official Website</a> | 
+                <a href="https://github.com/sampotts/plyr" target="_blank">GitHub</a> | 
+                <a href="https://github.com/sampotts/plyr#readme" target="_blank">Documentation</a>
+            </p>
+        </div>
+    </div>
+    
+    <!-- Plyr JavaScript -->
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+    <script>
+        // Initialize Plyr
+        const player = new Plyr('#player', {
+            controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'settings', 'pip', 'airplay', 'fullscreen'],
+            settings: ['captions', 'quality', 'speed'],
+            speed: { selected: 1, options: [0.5, 0.75, 1, 1.25, 1.5, 2] }
+        });
+        
+        // Optional: Add event listeners
+        player.on('play', () => {
+            console.log('Plyr: Playback started');
+        });
+        
+        player.on('ended', () => {
+            console.log('Plyr: Playback ended');
+        });
+    </script>
+</body>
+</html>
